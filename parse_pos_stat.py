@@ -14,6 +14,7 @@ def parse_pos_stat(file_path):
         'Elevation': [],
         'Pseudorange Residual': [],
         'Carrier-phase Residual': [],
+        'Valid Data Flag' : [], # (0: invalid, 1: valid)
         'SNR (dbHz)': [], # Signal to noise ratio
         'Ambiguity Flag': [], # (0:no data,1:float,2:fixed,3:hold)
         'Cycle-slip Flag' : [], # (bit1:slip,bit2:parity unknown)
@@ -42,21 +43,22 @@ def parse_pos_stat(file_path):
                     data['Elevation'].append(parts[6])
                     data['Pseudorange Residual'].append(parts[7])
                     data['Carrier-phase Residual'].append(parts[8])
-                    data['SNR (dbHz)'].append(parts[9])
-                    data['Ambiguity Flag'].append(parts[10])
-                    data['Cycle-slip Flag'].append(parts[11])
-                    data['Carrier-lock Count'].append(parts[12])
-                    data['Data Outage Count'].append(parts[13])
-                    data['Cycle-slip Count'].append(parts[14])
-                    data['Data Reject Count'].append(parts[15]) 
+                    data['Valid Data Flag'].append(parts[9])
+                    data['SNR (dbHz)'].append(parts[10])
+                    data['Ambiguity Flag'].append(parts[11])
+                    data['Cycle-slip Flag'].append(parts[12])
+                    data['Carrier-lock Count'].append(parts[13])
+                    data['Data Outage Count'].append(parts[14])
+                    data['Cycle-slip Count'].append(parts[15])
+                    data['Data Reject Count'].append(parts[16]) 
     return data
 
-file_path = 'C:/Users/louis/OneDrive/Desktop/GP7-3_20240712_obs.pos.stat'
+file_path = 'C:/Users/louis/OneDrive/Desktop/GP7-4_20240712_obs.pos.stat'
 parsed_data = parse_pos_stat(file_path)
 df = pd.DataFrame(parsed_data)
 
 # Export to Excel
-excel_path = 'C:/Users/louis/OneDrive/Desktop/parsed_data.xlsx'
+excel_path = 'C:/Users/louis/OneDrive/Desktop/parsedGP7-4_20240712.xlsx'
 df.to_excel(excel_path, index=False, engine='openpyxl')
 
 print(f"Data exported to {excel_path}")
