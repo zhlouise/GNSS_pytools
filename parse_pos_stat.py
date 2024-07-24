@@ -1,5 +1,3 @@
-# Focusing on the $SAT entries first
-
 
 import pandas as pd
 
