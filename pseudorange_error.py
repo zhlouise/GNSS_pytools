@@ -105,7 +105,7 @@ if __name__ == '__main__':
     # Import data
     data = import_excel('data.xlsx')
     # Get master satellite
-    master_sat = master_sat(data)
+    master_sat = get_master_sat(data)
     # Calculate double difference
     DD = double_difference(data['Sat2Ref'], data['Sat2Rover'], data['Master2Ref'], data['Master2Rover'])
     print(DD)
