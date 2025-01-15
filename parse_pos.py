@@ -29,7 +29,7 @@ def parse_pos_file(file_path):
 
     return mean_latitude, mean_longitude, mean_height
 
-file_path = 'C:/Users/louis/OneDrive/Desktop/tree2_GT_20241225.pos'
+file_path = 'C:/Users/louis/OneDrive/Desktop/vegetation+buildings.pos'
 result = parse_pos_file(file_path)
 if result is not None:
     mean_latitude, mean_longitude, mean_height = result
